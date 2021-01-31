@@ -12,12 +12,13 @@ operator_dict = {
     "*": operator.mul,
     "/": operator.truediv,
 }
+
 # print(operator_dict)
 
-def choose_a (string):
+
+def choose_a(string):
     print("Vänligen ange en " + string)
 
-choose_a("bajskorv")
 
 # Three while loops that creates user inputs and control
 # To do, convert to function
@@ -29,7 +30,7 @@ while True:
     else:
         break
 
-# Gör blocken inom 32 - 62 till class? funktion? Kan man göra en funktion för While True?
+# Fångar allt möjligt med min try catch?
 while True:
     try:
         term_input = int(input("Ange antal nollor du önskar öva med (0, 1, 2, eller 3)"))
