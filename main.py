@@ -15,6 +15,7 @@ operator_dict = {
     "-": operator.sub,
     "*": operator.mul,
     "/": operator.truediv,
+
 }
 
 # print(operator_dict)
@@ -48,28 +49,22 @@ while True:
     if term_input > 3 or term_input < 0:
         choose_a("tal inom intervallet (2)")
     # Om terminput är en integer men integern överstiger önskat intervall
-    # TODO Bestöm datatyp på antal nollor och andra siffror som ska matas in, integer, float, etc
-    # TODO Create a function that applies numbers in term 1 and term2 is that #TDOO1?
+    # TODO Bestäm datatyp på antal nollor och andra siffror som ska matas in, integer, float, etc
     else:
-        if term_input == 0:
-            term1 = random.randrange(1, 10)
-            term2 = random.randrange(1, 10)
-        elif term_input == 1:
-            term1 = random.randrange(11, 100)
-            term2 = random.randrange(11, 100)
-        elif term_input == 2:
-            term1 = random.randrange(101, 1000)
-            term2 = random.randrange(101, 1000)
-        elif term_input == 3:
-            term1 = random.randrange(1001, 10000)
-            term2 = random.randrange(1001, 10000)
         break
 
 
+# TODO Fånga ValueError: invalid literal for int() with base 10:
+
 while True:
-    quantity_input = int(input("Ange hur många räkneoperationer du önskar, max antal 15"))
+    try:
+        quantity_input = int(input("Ange hur många räkneoperationer du önskar, max antal 15"))
+    except ValueError:
+        choose_a("antal inom intervallet (1)")
+        continue
+
     if quantity_input > 15:
-        choose_a("antal inom intervallet (3)")
+        choose_a("antal inom intervallet (2)")
     else:
         break
 
@@ -79,11 +74,12 @@ list_solution = []
 
 # TODO ? ge möjlighet att välja bort  tal vilka leder till negativa tal?
 # TODO Dubletter! Ingen aning vad jag vill ha sagt...
-# TODO Funnen bugg --> local variable 'term1' referenced before assignment, sker vid negativa tal. Ändra vid term_input
 
 def create_dict(quantity):
     # send in quantity_input and term_input return lists calculations and solutions
     for i in range(0, quantity):
+        term1 = random.randrange(10**term_input, 10**(term_input+1))
+        term2 = random.randrange(10**term_input, 10 **(term_input + 1))
         result = operator_dict[operator_input](term1, term2)
         # print(result)
         # print(result_add)
@@ -93,7 +89,9 @@ def create_dict(quantity):
         list_solution.append(calculation_solution)
 
 
+# Name quantity_input can be undefined, uppkom med try catch, why?
 create_dict(quantity_input)
 
 print(list_calculations)
 print(list_solution)
+
