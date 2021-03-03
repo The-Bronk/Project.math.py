@@ -5,9 +5,13 @@
 import operator
 import random
 
-# TODO Create function that replaces operator import, keep solution with dictionary for now
+# TODO Skapa en funktion som tar emot operator och ger list_calculations & list_solution,(idag via create_dict),
+#  skapa även funktion för random i klassen
 
-# TODO replace insatnces of string with f string
+# TODO Lägg till boolean som en eller flera operatorer
+
+
+# TODO ersätt string med f string
 
 # Create dictionary for operators
 operator_dict = {
@@ -15,21 +19,17 @@ operator_dict = {
     "-": operator.sub,
     "*": operator.mul,
     "/": operator.truediv,
-
+    # Logiska opperander i operator är funktioner, de kräver a  och b "^": operator.__ge__(a,b)
 }
 
 # print(operator_dict)
 
 
-# Create useless function a sentence
+# Skapar en funktion för ett konsekvent språkbruk
 def choose_a(string):
     print("Vänligen ange en " + string)
 
-
 # Three while loops that creates user inputs and control of the inputs
-# TODO, convert whileloops to function eller Class? Förenkla koden på något vis, kanske påverkar lösning
-
-
 while True:
     operator_input = str(input("Ange en av följande operatorer: +, -, /, *,"))
     if operator_input not in operator_dict:
@@ -53,9 +53,6 @@ while True:
     else:
         break
 
-
-# TODO Fånga ValueError: invalid literal for int() with base 10:
-
 while True:
     try:
         quantity_input = int(input("Ange hur många räkneoperationer du önskar, max antal 15"))
@@ -73,9 +70,8 @@ list_calculations = []
 list_solution = []
 
 # TODO ? ge möjlighet att välja bort  tal vilka leder till negativa tal?
-# TODO Dubletter! Ingen aning vad jag vill ha sagt...
 
-def create_dict(quantity):
+def create_dict(quantity, list1, list2):
     # send in quantity_input and term_input return lists calculations and solutions
     for i in range(0, quantity):
         term1 = random.randrange(10**term_input, 10**(term_input+1))
@@ -85,12 +81,12 @@ def create_dict(quantity):
         # print(result_add)
         calculation_solution = str(term1) + operator_input + str(term2) + "=" + str(result)
         calculation_operation = str(term1) + operator_input + str(term2) + "="
-        list_calculations.append(calculation_operation)
-        list_solution.append(calculation_solution)
+        list1.append(calculation_operation)
+        list2.append(calculation_solution)
 
 
 # Name quantity_input can be undefined, uppkom med try catch, why?
-create_dict(quantity_input)
+create_dict(quantity_input, list_calculations, list_solution)
 
 print(list_calculations)
 print(list_solution)
