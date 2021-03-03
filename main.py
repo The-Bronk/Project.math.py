@@ -41,6 +41,7 @@ while True:
 # TODO Önskar endast fånga endast när input inte är integer, debugga om fångar mer
 while True:
     try:
+
         term_input = int(input("Ange antal nollor du önskar öva med (0, 1, 2, eller 3)"))
     except ValueError:
         choose_a("tal inom intervallet (1)")
@@ -56,14 +57,15 @@ while True:
 
 # TODO Fånga ValueError: invalid literal for int() with base 10:
 
+quantity_input = None
+
 while True:
     try:
         quantity_input = int(input("Ange hur många räkneoperationer du önskar, max antal 15"))
     except ValueError:
         choose_a("antal inom intervallet (1)")
         continue
-
-    if quantity_input > 15:
+    if quantity_input > 15 or quantity_input <= 0:
         choose_a("antal inom intervallet (2)")
     else:
         break
@@ -75,11 +77,12 @@ list_solution = []
 # TODO ? ge möjlighet att välja bort  tal vilka leder till negativa tal?
 # TODO Dubletter! Ingen aning vad jag vill ha sagt...
 
+
 def create_dict(quantity):
     # send in quantity_input and term_input return lists calculations and solutions
     for i in range(0, quantity):
         term1 = random.randrange(10**term_input, 10**(term_input+1))
-        term2 = random.randrange(10**term_input, 10 **(term_input + 1))
+        term2 = random.randrange(10**term_input, 10**(term_input + 1))
         result = operator_dict[operator_input](term1, term2)
         # print(result)
         # print(result_add)
@@ -94,4 +97,3 @@ create_dict(quantity_input)
 
 print(list_calculations)
 print(list_solution)
-
