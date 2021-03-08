@@ -1,9 +1,9 @@
 # Class som skapar datatypen miniräknkare
- # Sends in user input and tests for 
+# Sends in user input and tests for
 
-class:
+class Calculator:
 
-    def __init__(calculator, operator, term, quantity):
-        calculator.operator = operator
-        calculator.term = term
-        calculator.quantity =quantity
+    def __init__(self, operator, term, quantity):
+        self.operator = operator
+        self.term = term
+        self.quantity = quantity
