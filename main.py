@@ -33,6 +33,26 @@ def choose_a(string):
 # Three while loops that creates user inputs and control of the inputs
 # TODO, convert whileloops to function eller Class? Förenkla koden på något vis, kanske påverkar lösning
 
+# lösning 1, funktion som tar emot user input som string och kontrollerar om de kan konverteras till int, skickar sedan konverterad data
+def inputtest(usrinput, interval):
+    returnvalue = None
+    while True:
+        try:
+            int(usrinput)
+        except ValueError:
+            usrinput= input("Ange ett tal inom intervallet: " + interval)
+            continue
+        else:
+            break
+    
+    return int(usrinput)
+
+
+term_input = input("Ange antal nollor du önskar öva med (0, 1, 2, eller 3)")
+
+# print(type(inputtest(term_input, "0, 1, 2, eller 3")))
+term_ok = inputtest(term_input, "0, 1, 2, eller 3")
+print(term_ok)
 
 while True:
     operator_input = str(input("Ange en av följande operatorer: +, -, /, *,"))
@@ -58,8 +78,6 @@ while True:
         break
 
 
-# TODO Fånga ValueError: invalid literal for int() with base 10:
-
 quantity_input = None
 
 while True:
@@ -78,7 +96,6 @@ list_calculations = []
 list_solution = []
 
 # TODO ? ge möjlighet att välja bort  tal vilka leder till negativa tal?
-# TODO Dubletter! Ingen aning vad jag vill ha sagt...
 
 def create_dict(quantity, list1, list2):
     # send in quantity_input and term_input return lists calculations and solutions
@@ -94,7 +111,6 @@ def create_dict(quantity, list1, list2):
         list2.append(calculation_solution)
 
 
-# Name quantity_input can be undefined, uppkom med try catch, why?
 create_dict(quantity_input, list_calculations, list_solution)
 
 print(list_calculations)
