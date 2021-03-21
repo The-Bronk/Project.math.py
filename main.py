@@ -11,17 +11,18 @@ import random
 # TODO Placera string_dict i funktionen inputtest för att kunna ställa prompts i funktionen
 # TODO What about negativa tal i calculator
 
-# Create dictionary for operators
+# Skapar dictionary for operators
 operator_dict = {
     "+": operator.add,
     "-": operator.sub,
     "*": operator.mul,
     "/": operator.truediv,
-    # Logiska opperander i operator är funktioner, de kräver a  och b "^": operator.__ge__(a,b)
 }
 
+#Skapar dictionary för sträng
 string_dict = {
     "term": "Vänligen ange ett tal inom intervallet 0 till 3",
+    "prompt_term": "Ange antal nollor du önskar öva med (0, 1, 2, eller 3)",
     "quantity": "Vänligen ange ett tal inom intervallet 1 till 15",
     "operator": "Vänligen ange en operator"
 }
@@ -49,13 +50,17 @@ term_ok = inputtest(term_input, string_dict["term"], 3, 0)
 quantity_input = (input("Ange hur många räkneoperationer du önskar, max antal 15"))
 quantity_ok = inputtest(quantity_input, string_dict["quantity"], 15, 1)
 
-while True:
-    operator_input = str(input("Ange en av följande operatorer: +, -, /, *,"))
-    if operator_input not in operator_dict:
-        print(string_dict["operator"])
-        # continue
-    else:
-        break
+def quantity_inputtest(userinput, errorprompt):
+    while True: 
+        if userinput not in operator_dict:
+            userinput = input(errorprompt)
+        else:
+            break    
+    return userinput
+
+operator_input = str(input("Ange en av följande operatorer: +, -, /, *,"))
+operator_ok = quantity_inputtest(operator_input, string_dict["operator"])
+
 
 # Create a list with räkneoperationer
 list_calculations = []
@@ -74,9 +79,8 @@ def calculator(quantity, list1, list2):
         list1.append(calculation_operation)
         list2.append(calculation_solution)
 
-# Ändrade quantity_input till quantity_ok pga ny funktion, testa!
+
 create_dict(quantity_ok, list_calculations, list_solution)
 
 print(list_calculations)
 print(list_solution)
-
