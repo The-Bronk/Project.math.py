@@ -8,7 +8,7 @@ import random
 # TODO Skapa en Klass av funktionen calculator
 # TODO Skapa funktion för random
 # TODO Skapa en funktion för operator --> Fråga Niklas, CodeWiz?
-# TODO Placera string_dict i funktionen inputtest för att kunna ställa prompts i funktionen
+# TODO Placera string_dict i funktionen inputtest för att kunna ställa prompts i funktionen,
 # TODO What about negativa tal i calculator
 
 # Skapar dictionary for operators
@@ -21,10 +21,10 @@ operator_dict = {
 
 #Skapar dictionary för sträng
 string_dict = {
-    "term": "Vänligen ange ett tal inom intervallet 0 till 3",
-    "prompt_term": "Ange antal nollor du önskar öva med (0, 1, 2, eller 3)",
+    "term": "Ange antal nollor du önskar öva med (0, 1, 2, eller 3)",
+    "prompt_term": "Vänligen ange ett tal inom intervallet 0 till 3",
     "quantity": "Vänligen ange ett tal inom intervallet 1 till 15",
-    "operator": "Vänligen ange en operator"
+    "operator": "Vänligen ange en operator",
 }
 
 # Funktion som kontrollerar value error samt intervall från diverse user_inputs
@@ -44,7 +44,7 @@ def inputtest(usrinput, errorprompt, högre, lägre):
 
 # Fråga efter termens storlek
 term_input = input("Ange antal nollor du önskar öva med (0, 1, 2, eller 3)")
-term_ok = inputtest(term_input, string_dict["term"], 3, 0)
+term_ok = inputtest(term_input, string_dict["prompt_term"], 3, 0)
 
 # Fråga efter antal räkneoperationer 
 quantity_input = (input("Ange hur många räkneoperationer du önskar, max antal 15"))
@@ -80,7 +80,7 @@ def calculator(quantity, list1, list2):
         list2.append(calculation_solution)
 
 
-create_dict(quantity_ok, list_calculations, list_solution)
+calculator(quantity_ok, list_calculations, list_solution)
 
 print(list_calculations)
 print(list_solution)
