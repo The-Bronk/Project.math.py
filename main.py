@@ -10,6 +10,7 @@ import random
 # TODO Skapa en funktion för operator --> Fråga Niklas, CodeWiz?
 # TODO Placera string_dict i funktionen inputtest för att kunna ställa prompts i funktionen,
 # TODO What about negativa tal i calculator
+# TODO Avrunda svar i list_solution
 
 # Skapar dictionary for operators
 operator_dict = {
@@ -23,7 +24,8 @@ operator_dict = {
 string_dict = {
     "term": "Ange antal nollor du önskar öva med (0, 1, 2, eller 3)",
     "prompt_term": "Vänligen ange ett tal inom intervallet 0 till 3",
-    "quantity": "Vänligen ange ett tal inom intervallet 1 till 15",
+    "quantity": "Ange hur många räkneoperationer du önskar, max antal 15",
+    "prompt_quantity": "Vänligen ange ett tal inom intervallet 1 till 15",
     "operator": "Vänligen ange en operator",
 }
 
@@ -43,12 +45,12 @@ def inputtest(usrinput, errorprompt, högre, lägre):
     return usrinput
 
 # Fråga efter termens storlek
-term_input = input("Ange antal nollor du önskar öva med (0, 1, 2, eller 3)")
+term_input = input(string_dict["term"])
 term_ok = inputtest(term_input, string_dict["prompt_term"], 3, 0)
 
 # Fråga efter antal räkneoperationer 
-quantity_input = (input("Ange hur många räkneoperationer du önskar, max antal 15"))
-quantity_ok = inputtest(quantity_input, string_dict["quantity"], 15, 1)
+quantity_input = input(string_dict["quantity"])
+quantity_ok = inputtest(quantity_input, string_dict["prompt_quantity"], 15, 1)
 
 def quantity_inputtest(userinput, errorprompt):
     while True: 
