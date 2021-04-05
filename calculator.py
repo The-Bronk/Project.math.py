@@ -1,17 +1,29 @@
 # Class som skapar datatypen miniräknkare
 # Sends in user input and tests for
 
-class Calculator:
+class Kaffekopp:
+    def __init__(self, Name):
+        self.name = Name
+        self.position = (0,0,0)
+        self.mängdKaffeI = 0
+    
+    def PrintKopp(self):
+        print("Name: " + self.name)
+        print("position: " + str(self.position) )
+        print("MängdKaffe: " + str(self.mängdKaffeI))
+        
 
-    def __init__(self, operator, term, quantity):
-        self.operator = operator
-        self.term = term
-        self.quantity = quantity
 
-    def inputtest(self):
-        pass
-    try:
-	    self = a_method_that_may_raise_an_exception()
-	    if not pk: raise PKIsFalseException()
-    except ValueError
-    print("Vänligen ange ett tal inom intervallet")
+kopp1 = Kaffekopp("köpp1")
+
+kopp1.position = (5, 1, 0)
+kopp1.mängdKaffeI = 10
+
+kopp2 = Kaffekopp("köpp2")
+kopp2.position = (5, 1, 0)
+kopp2.mängdKaffeI = 10
+
+
+
+kopp1.PrintKopp()
+kopp2.PrintKopp()

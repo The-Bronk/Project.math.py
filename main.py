@@ -63,7 +63,6 @@ def quantity_inputtest(userinput, errorprompt):
 operator_input = str(input("Ange en av följande operatorer: +, -, /, *,"))
 operator_ok = quantity_inputtest(operator_input, string_dict["operator"])
 
-
 # Create a list with räkneoperationer
 list_calculations = []
 list_solution = []
