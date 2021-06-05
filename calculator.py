@@ -9,12 +9,12 @@ class Kaffekopp:
     
     def PrintKopp(self):
         print("Name: " + self.name)
-        print("position: " + str(self.position) )
+        print("position: " + str(self.position))
         print("MängdKaffe: " + str(self.mängdKaffeI))
         
 
 
-kopp1 = Kaffekopp("köpp1")
+"kopp1 = Kaffekopp("köpp1")
 
 kopp1.position = (5, 1, 0)
 kopp1.mängdKaffeI = 10
@@ -25,5 +25,6 @@ kopp2.mängdKaffeI = 10
 
 
 
-kopp1.PrintKopp()
+
+kopp1.PrintKopp("köpp1")
 kopp2.PrintKopp()
